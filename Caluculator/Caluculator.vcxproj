@@ -204,6 +204,7 @@
     <ResourceCompile Include="Caluculator.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="res\Caluculator.rc2" />
   </ItemGroup>
   <ItemGroup>

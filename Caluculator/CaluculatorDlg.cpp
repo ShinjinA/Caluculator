@@ -59,6 +59,8 @@ CCaluculatorDlg::CCaluculatorDlg(CWnd* pParent /*=nullptr*/)
 void CCaluculatorDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_EDIT1, View1);
+	DDX_Control(pDX, IDC_EDIT2, History);
 }
 
 BEGIN_MESSAGE_MAP(CCaluculatorDlg, CDialogEx)
