@@ -31,4 +31,9 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	// 計算式と結果
+	CEdit View1;
+	// 計算式と結果の履歴
+	CEdit History;
 };
