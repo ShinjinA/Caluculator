@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Caluculate.h" />
     <ClInclude Include="Caluculator.h" />
     <ClInclude Include="CaluculatorDlg.h" />
     <ClInclude Include="framework.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Caluculate.cpp" />
     <ClCompile Include="Caluculator.cpp" />
     <ClCompile Include="CaluculatorDlg.cpp" />
     <ClCompile Include="pch.cpp">
