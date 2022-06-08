@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 /// <summary>
 /// 演算子
 /// </summary>
@@ -10,6 +12,8 @@ enum EOperator
 	Mul,
 	Div,
 };
+
+// シングルトンクラスとして実装したい、後々
 
 class CCalculate
 {
@@ -24,6 +28,15 @@ public:
 	/// </summary>
 	~CCalculate();
 
+	// 入力されたボタンに応じて、計算結果を返す。
+	double ExecCalc(char Manipulator);
+
+	//void SetCCalculatePointer(CCalculate* CCalculatePointer);
+
+	//CCalculate* GetCCalculatePointer();
+
+private:
+
 	/// <summary>
 	/// 演算実行
 	/// </summary>
@@ -33,8 +46,6 @@ public:
 	/// <returns>計算結果</returns>
 	double ExecCaluc(double dNum1, double dNum2, EOperator eOperator);
 
-private:
-
 	/// <summary>
 	/// 
 	/// </summary>
@@ -42,5 +53,14 @@ private:
 	/// <param name="Num2"></param>
 	/// <returns></returns>
 	double Add(double Num1, double Num2);
+
+	// 押されたボタンを保存するベクター
+	std::vector<char> m_ManipulationHistory;
+
+	// View1に表示されるべき値
+	double m_View1;
+
+	// ヒストリーに表示されるべき文字列
+	char* m_History;
 
 };

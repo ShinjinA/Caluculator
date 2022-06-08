@@ -7,11 +7,13 @@
 #include "Calculator.h"
 #include "CalculatorDlg.h"
 #include "afxdialogex.h"
+#include "Calculate.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
+CCalculate* cCalculate = new CCalculate;
 
 // アプリケーションのバージョン情報に使われる CAboutDlg ダイアログ
 
@@ -68,6 +70,8 @@ BEGIN_MESSAGE_MAP(CCaluculatorDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CCaluculatorDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CCaluculatorDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON12, &CCaluculatorDlg::OnBnClickedButton12)
 END_MESSAGE_MAP()
 
 
@@ -103,6 +107,9 @@ BOOL CCaluculatorDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 小さいアイコンの設定
 
 	// TODO: 初期化をここに追加します。
+
+	/*CCalculate* cCalculate = new CCalculate;
+	cCalculate->SetCCalculatePointer(cCalculate);*/
 
 	return TRUE;  // フォーカスをコントロールに設定した場合を除き、TRUE を返します。
 }
@@ -160,5 +167,30 @@ HCURSOR CCaluculatorDlg::OnQueryDragIcon()
 
 void CCaluculatorDlg::OnBnClickedButton1()
 {
+	
+	char buf[30];
+	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(1));
+
+	this->View1.SetWindowText(buf);
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton2()
+{
+	char buf[30];
+	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(2));
+
+	this->View1.SetWindowText(buf);
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton12()
+{
+	char buf[30];
+	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(12));
+
+	this->View1.SetWindowText(buf);
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
