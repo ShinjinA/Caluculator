@@ -8,14 +8,14 @@
 /// <param name="dNum2">オペランド2</param>
 /// <param name="eOperator">演算子</param>
 /// <returns>計算結果</returns>
-double CCaluculate::ExecCaluc(double dNum1, double dNum2, EOperator eOperator)
+double CCalculate::ExecCaluc(double dNum1, double dNum2, EOperator eOperator)
 {
 	switch (eOperator)
-		case EOperator::add:
+		case EOperator::Add:
 			return Add(dNum1, dNum2);
 }
 
-double CCaluculate::Add(double Num1, double Num2)
+double CCalculate::Add(double Num1, double Num2)
 {
 	return Num1 + Num2;
 }

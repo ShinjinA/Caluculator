@@ -4,25 +4,25 @@
 /// 演算子
 /// </summary>
 enum EOperator
-{ 
-	add= 0,
-	sub,
-	mul,
-	div,
+{
+	Add = 0,
+	Sub,
+	Mul,
+	Div,
 };
 
-class CCaluculate
+class CCalculate
 {
 public:
 	/// <summary>
 	/// コンストラクタ
 	/// </summary>
-	CCaluculate();
+	CCalculate();
 
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
-	~CCaluculate();
+	~CCalculate();
 
 	/// <summary>
 	/// 演算実行
@@ -42,4 +42,5 @@ private:
 	/// <param name="Num2"></param>
 	/// <returns></returns>
 	double Add(double Num1, double Num2);
+
 };

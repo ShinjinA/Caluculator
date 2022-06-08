@@ -183,18 +183,18 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Caluculate.h" />
-    <ClInclude Include="Caluculator.h" />
-    <ClInclude Include="CaluculatorDlg.h" />
+    <ClInclude Include="Calculate.h" />
+    <ClInclude Include="Calculator.h" />
+    <ClInclude Include="CalculatorDlg.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Caluculate.cpp" />
-    <ClCompile Include="Caluculator.cpp" />
-    <ClCompile Include="CaluculatorDlg.cpp" />
+    <ClCompile Include="Calculate.cpp" />
+    <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="CalculatorDlg.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -4,8 +4,8 @@
 
 #include "pch.h"
 #include "framework.h"
-#include "Caluculator.h"
-#include "CaluculatorDlg.h"
+#include "Calculator.h"
+#include "CalculatorDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -36,4 +36,5 @@ public:
 	CEdit View1;
 	// 計算式と結果の履歴
 	CEdit History;
+	afx_msg void OnBnClickedButton1();
 };
