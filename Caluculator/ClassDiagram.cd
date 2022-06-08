@@ -5,7 +5,7 @@
     <NestedTypes>
       <Enum Name="CAboutDlg::__unnamed_enum_0403_1" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>CaluculatorDlg.cpp</NewMemberFileName>
+          <NewMemberFileName>CalculatorDlg.cpp</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
