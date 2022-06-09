@@ -1,6 +1,9 @@
 #pragma once
 
 #include <vector>
+#include <iterator>
+
+#define MAX_MANIPULATE_LENGHT 20
 
 /// <summary>
 /// 演算子
@@ -31,9 +34,11 @@ public:
 	// 入力されたボタンに応じて、計算結果を返す。
 	double ExecCalc(char Manipulator);
 
-	//void SetCCalculatePointer(CCalculate* CCalculatePointer);
+	int SetView1(char Manipulator);
 
-	//CCalculate* GetCCalculatePointer();
+	char* GetView1();
+
+	int GetView1Size();
 
 private:
 
@@ -54,13 +59,20 @@ private:
 	/// <returns></returns>
 	double Add(double Num1, double Num2);
 
-	// 押されたボタンを保存するベクター
-	std::vector<char> m_ManipulationHistory;
+	// 押されたボタンを保存するベクター（View1に表示）
+	char m_ManipulationView1[MAX_MANIPULATE_LENGHT];
 
-	// View1に表示されるべき値
-	double m_View1;
+	// 終端
+	char m_ManipulationViewTermination;
 
-	// ヒストリーに表示されるべき文字列
-	char* m_History;
+	// 押されたボタンを保存するベクター（History）
+	char m_ManipulationHistory[MAX_MANIPULATE_LENGHT];
+
+	// 計算結果
+	long double m_CalcResult;
+
+	// m_ManipulationView1をすべて0x00にリセット
+	// m_ManipulationViewTerminationを0
+	void ResetManipulationView1();
 
 };

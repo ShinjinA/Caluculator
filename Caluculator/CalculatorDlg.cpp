@@ -8,6 +8,7 @@
 #include "CalculatorDlg.h"
 #include "afxdialogex.h"
 #include "Calculate.h"
+#include <string>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -22,12 +23,12 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// ダイアログ データ
+	// ダイアログ データ
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サポート
 
 // 実装
@@ -72,6 +73,11 @@ BEGIN_MESSAGE_MAP(CCaluculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CCaluculatorDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CCaluculatorDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON12, &CCaluculatorDlg::OnBnClickedButton12)
+	ON_BN_CLICKED(IDC_BUTTON3, &CCaluculatorDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON14, &CCaluculatorDlg::OnBnClickedButton14)
+	ON_BN_CLICKED(IDC_BUTTON15, &CCaluculatorDlg::OnBnClickedButton15)
+	ON_BN_CLICKED(IDC_BUTTON17, &CCaluculatorDlg::OnBnClickedButton17)
+	ON_BN_CLICKED(IDC_BUTTON18, &CCaluculatorDlg::OnBnClickedButton18)
 END_MESSAGE_MAP()
 
 
@@ -167,7 +173,7 @@ HCURSOR CCaluculatorDlg::OnQueryDragIcon()
 
 void CCaluculatorDlg::OnBnClickedButton1()
 {
-	
+
 	char buf[30];
 	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(1));
 
@@ -192,5 +198,51 @@ void CCaluculatorDlg::OnBnClickedButton12()
 	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(12));
 
 	this->View1.SetWindowText(buf);
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton3()
+{
+	cCalculate->SetView1('3');
+	//char ManipulationView1[MAX_MANIPULATE_LENGHT] = { 0x00 };
+
+	//for (int i = 0; i < cCalculate->GetView1Size(); ++i)
+	//{
+	//	ManipulationView1[i] = ((*cCalculate->GetView1())[i]);
+	//}
+
+	///*for (int i = 0; i < cCalculate->GetView1Size(); ++i)
+	//{
+	//	sprintf(&ManipulationView1[i],"%c", &(*cCalculate->GetView1())[i]);
+	//}*/
+
+	
+	this->View1.SetWindowText(cCalculate->GetView1());
+	//delete[] ManipulationView1;
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton14()
+{
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton15()
+{
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton17()
+{
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton18()
+{
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }

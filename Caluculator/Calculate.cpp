@@ -12,8 +12,9 @@ int Exponentiation(int Base, int Exponent)
 }
 
 CCalculate::CCalculate() :
-	m_History(NULL),
-	m_View1(0.0)
+	m_ManipulationView1{ 0x00 },
+	m_ManipulationHistory{ 0x00 },
+	m_ManipulationViewTermination(0)
 {
 
 }
@@ -25,28 +26,26 @@ CCalculate::~CCalculate()
 
 double CCalculate::ExecCalc(char Manipulator)
 {
-	m_View1 = 0.0;
+	//m_CalcResult = 0.0;
 
-	// 0~9のボタンが押された時
-	if (Manipulator <= 9 && Manipulator >= 0)
-	{
-		// ベクターの最終要素に押された数字を追加
-		m_ManipulationHistory.push_back(Manipulator);
+	//// 0~9のボタンが押された時
+	//if (Manipulator <= 9 && Manipulator >= 0)
+	//{
+	//	// ベクターの最終要素に押された数字を追加
+	//	m_ManipulationHistory.push_back(Manipulator);
 
-		// 表示すべき値を計算
-		for (int i = 0; i < m_ManipulationHistory.size(); ++i)
-		{
-			m_View1 += (double)m_ManipulationHistory[i] * (Exponentiation(10, (m_ManipulationHistory.size() - i - 1)));
-		}
-	}
+	//	// 表示すべき値を計算
+	//	for (int i = 0; i < m_ManipulationHistory.size(); ++i)
+	//	{
+	//		m_CalcResult += (double)m_ManipulationHistory[i] * (Exponentiation(10, (m_ManipulationHistory.size() - i - 1)));
+	//	}
+	//}
 
 	// C1ボタンが押された時の処理
-	else if (Manipulator == 12)
+	if (Manipulator == 12)
 	{
-		for (; m_ManipulationHistory.size() != 0;)
-		{
-			m_ManipulationHistory.erase(m_ManipulationHistory.begin());
-		}
+	
+
 	}
 
 	// 数字以外のボタンが押された場合の処理。
@@ -55,7 +54,27 @@ double CCalculate::ExecCalc(char Manipulator)
 
 	}
 
-	return m_View1;
+	return m_CalcResult;
+}
+
+int CCalculate::SetView1(char Manipulator)
+{
+	if (m_ManipulationViewTermination < MAX_MANIPULATE_LENGHT)
+	{
+		m_ManipulationView1[m_ManipulationViewTermination] = Manipulator;
+		++m_ManipulationViewTermination;
+	}
+	return m_ManipulationViewTermination;
+}
+
+char* CCalculate::GetView1()
+{
+	return m_ManipulationView1;
+}
+
+int CCalculate::GetView1Size()
+{
+	return m_ManipulationViewTermination;
 }
 
 //void CCalculate::SetCCalculatePointer(CCalculate* CCalculatePointer)
@@ -85,4 +104,13 @@ double CCalculate::ExecCaluc(double dNum1, double dNum2, EOperator eOperator)
 double CCalculate::Add(double Num1, double Num2)
 {
 	return Num1 + Num2;
+}
+
+void CCalculate::ResetManipulationView1()
+{
+	m_ManipulationViewTermination = 0;
+	for (int i = 0; i < MAX_MANIPULATE_LENGHT; ++i)
+	{
+		m_ManipulationView1[i] = 0x00;
+	}
 }
