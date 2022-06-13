@@ -205,18 +205,6 @@ void CCaluculatorDlg::OnBnClickedButton12()
 void CCaluculatorDlg::OnBnClickedButton3()
 {
 	cCalculate->SetView1('3');
-	//char ManipulationView1[MAX_MANIPULATE_LENGHT] = { 0x00 };
-
-	//for (int i = 0; i < cCalculate->GetView1Size(); ++i)
-	//{
-	//	ManipulationView1[i] = ((*cCalculate->GetView1())[i]);
-	//}
-
-	///*for (int i = 0; i < cCalculate->GetView1Size(); ++i)
-	//{
-	//	sprintf(&ManipulationView1[i],"%c", &(*cCalculate->GetView1())[i]);
-	//}*/
-
 	
 	this->View1.SetWindowText(cCalculate->GetView1());
 	//delete[] ManipulationView1;

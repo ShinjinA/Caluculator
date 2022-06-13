@@ -40,6 +40,9 @@ public:
 
 	int GetView1Size();
 
+	// View1のクリア（クリアボタン）
+	bool ClearView1();
+
 private:
 
 	/// <summary>
@@ -59,13 +62,13 @@ private:
 	/// <returns></returns>
 	double Add(double Num1, double Num2);
 
-	// 押されたボタンを保存するベクター（View1に表示）
+	// 押されたボタンを保存する配列（View1に表示）
 	char m_ManipulationView1[MAX_MANIPULATE_LENGHT];
 
-	// 終端
+	// 配列の入力されたボタンの終端
 	char m_ManipulationViewTermination;
 
-	// 押されたボタンを保存するベクター（History）
+	// 押されたボタンを保存する配列（History）
 	char m_ManipulationHistory[MAX_MANIPULATE_LENGHT];
 
 	// 計算結果

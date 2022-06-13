@@ -77,15 +77,12 @@ int CCalculate::GetView1Size()
 	return m_ManipulationViewTermination;
 }
 
-//void CCalculate::SetCCalculatePointer(CCalculate* CCalculatePointer)
-//{
-//	m_CalculatePointer = CCalculatePointer;
-//}
-//
-//CCalculate* CCalculate::GetCCalculatePointer()
-//{
-//	return m_CalculatePointer;
-//}
+bool CCalculate::ClearView1()
+{
+
+	return false;
+}
+
 
 /// <summary>
 /// ââéZé¿çs
