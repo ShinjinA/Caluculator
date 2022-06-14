@@ -57,14 +57,66 @@ double CCalculate::ExecCalc(char Manipulator)
 	return m_CalcResult;
 }
 
-int CCalculate::SetView1(char Manipulator)
+char* CCalculate::SetView1(char Manipulator)
 {
+	// "←"が押された時の場合
+	if (Manipulator == 'B')
+	{
+		if (m_ManipulationViewTermination > 0)
+		{
+			--m_ManipulationViewTermination;
+		}
+
+		m_ManipulationView1[m_ManipulationViewTermination] = 0x00;
+		return m_ManipulationView1;
+	}
+	// 小数点が押された場合
+	// 初めに押された場合は、入力を無視する。
+	if (m_ManipulationViewTermination == 0 && Manipulator == '.')
+	{
+		return m_ManipulationView1;
+	}
+
+	// 既に'.'が押されていれば、入力を無視する。
+	if (Manipulator == '.')
+	{
+		for (int i = 0; i < m_ManipulationViewTermination; ++i)
+		{
+			if (m_ManipulationView1[i] == '.')
+			{
+				return m_ManipulationView1;
+			}
+		}
+	}
+
+	// 0が初めに押された場合
+	if (m_ManipulationViewTermination == 1 && m_ManipulationView1[0] == '0')
+	{
+		// 二回目以降の0入力は無視する
+		if (Manipulator == '0')
+		{
+			return m_ManipulationView1;
+		}
+		// 0以外の数字が押されたときには、初めに入力した0を削除する。
+		else if(Manipulator - 0x31 >=0 && Manipulator - 0x39 <= 0)
+		{
+			--m_ManipulationViewTermination;
+		}
+	}
+
+	// 配列の後ろに押されたボタンの数字を追加していく
 	if (m_ManipulationViewTermination < MAX_MANIPULATE_LENGHT)
 	{
 		m_ManipulationView1[m_ManipulationViewTermination] = Manipulator;
 		++m_ManipulationViewTermination;
 	}
-	return m_ManipulationViewTermination;
+
+
+
+
+
+
+	return m_ManipulationView1;
 }
 
 char* CCalculate::GetView1()
@@ -76,13 +128,6 @@ int CCalculate::GetView1Size()
 {
 	return m_ManipulationViewTermination;
 }
-
-bool CCalculate::ClearView1()
-{
-
-	return false;
-}
-
 
 /// <summary>
 /// 演算実行

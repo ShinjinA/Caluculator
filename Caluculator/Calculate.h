@@ -34,14 +34,16 @@ public:
 	// 入力されたボタンに応じて、計算結果を返す。
 	double ExecCalc(char Manipulator);
 
-	int SetView1(char Manipulator);
+	// m_ManipulationView1に数字を追加する
+	char* SetView1(char Manipulator);
 
 	char* GetView1();
 
 	int GetView1Size();
 
-	// View1のクリア（クリアボタン）
-	bool ClearView1();
+	// m_ManipulationView1をすべて0x00にリセット
+	// m_ManipulationViewTerminationを0
+	void ResetManipulationView1();
 
 private:
 
@@ -63,19 +65,15 @@ private:
 	double Add(double Num1, double Num2);
 
 	// 押されたボタンを保存する配列（View1に表示）
-	char m_ManipulationView1[MAX_MANIPULATE_LENGHT];
-
-	// 配列の入力されたボタンの終端
-	char m_ManipulationViewTermination;
+	char m_ManipulationView1[MAX_MANIPULATE_LENGHT + 1];
 
 	// 押されたボタンを保存する配列（History）
-	char m_ManipulationHistory[MAX_MANIPULATE_LENGHT];
+	char m_ManipulationHistory[MAX_MANIPULATE_LENGHT + 1];
 
 	// 計算結果
 	long double m_CalcResult;
 
-	// m_ManipulationView1をすべて0x00にリセット
-	// m_ManipulationViewTerminationを0
-	void ResetManipulationView1();
+	// 配列に入力された数字の要素数
+	char m_ManipulationViewTermination;
 
 };

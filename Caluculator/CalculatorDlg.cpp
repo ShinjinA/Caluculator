@@ -78,6 +78,15 @@ BEGIN_MESSAGE_MAP(CCaluculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON15, &CCaluculatorDlg::OnBnClickedButton15)
 	ON_BN_CLICKED(IDC_BUTTON17, &CCaluculatorDlg::OnBnClickedButton17)
 	ON_BN_CLICKED(IDC_BUTTON18, &CCaluculatorDlg::OnBnClickedButton18)
+	ON_BN_CLICKED(IDC_BUTTON4, &CCaluculatorDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON5, &CCaluculatorDlg::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON6, &CCaluculatorDlg::OnBnClickedButton6)
+	ON_BN_CLICKED(IDC_BUTTON7, &CCaluculatorDlg::OnBnClickedButton7)
+	ON_BN_CLICKED(IDC_BUTTON8, &CCaluculatorDlg::OnBnClickedButton8)
+	ON_BN_CLICKED(IDC_BUTTON9, &CCaluculatorDlg::OnBnClickedButton9)
+	ON_BN_CLICKED(IDC_BUTTON10, &CCaluculatorDlg::OnBnClickedButton10)
+	ON_BN_CLICKED(IDC_BUTTON20, &CCaluculatorDlg::OnBnClickedButton20)
+	ON_BN_CLICKED(IDC_BUTTON13, &CCaluculatorDlg::OnBnClickedButton13)
 END_MESSAGE_MAP()
 
 
@@ -173,41 +182,30 @@ HCURSOR CCaluculatorDlg::OnQueryDragIcon()
 
 void CCaluculatorDlg::OnBnClickedButton1()
 {
-
-	char buf[30];
-	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(1));
-
-	this->View1.SetWindowText(buf);
+	this->View1.SetWindowText(cCalculate->SetView1('1'));
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
 
 void CCaluculatorDlg::OnBnClickedButton2()
 {
-	char buf[30];
-	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(2));
-
-	this->View1.SetWindowText(buf);
+	this->View1.SetWindowText(cCalculate->SetView1('2'));
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
-
+// クリアボタン
 void CCaluculatorDlg::OnBnClickedButton12()
 {
-	char buf[30];
-	snprintf(buf, 30, "%.0f", cCalculate->ExecCalc(12));
+	cCalculate->ResetManipulationView1();
 
-	this->View1.SetWindowText(buf);
+	this->View1.SetWindowText(cCalculate->GetView1());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
 
 void CCaluculatorDlg::OnBnClickedButton3()
 {
-	cCalculate->SetView1('3');
-	
-	this->View1.SetWindowText(cCalculate->GetView1());
-	//delete[] ManipulationView1;
+	this->View1.SetWindowText(cCalculate->SetView1('3'));
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
@@ -232,5 +230,68 @@ void CCaluculatorDlg::OnBnClickedButton17()
 
 void CCaluculatorDlg::OnBnClickedButton18()
 {
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton4()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('4'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton5()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('5'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton6()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('6'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton7()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('7'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton8()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('8'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton9()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('9'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton10()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('0'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton20()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('.'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton13()
+{
+	this->View1.SetWindowText(cCalculate->SetView1('B'));
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
