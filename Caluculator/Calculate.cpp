@@ -1,12 +1,13 @@
 #include "pch.h"
 #include "Calculate.h"
 
+// BaseのExponent乗を返す
 int Exponentiation(int Base, int Exponent)
 {
 	int Result = 1;
 	for (int i = 0; i < Exponent; ++i)
 	{
-		Result *= 10;
+		Result *= Base;
 	}
 	return Result;
 }
@@ -26,39 +27,35 @@ CCalculate::~CCalculate()
 
 double CCalculate::ExecCalc(char Manipulator)
 {
-	//m_CalcResult = 0.0;
-
-	//// 0~9のボタンが押された時
-	//if (Manipulator <= 9 && Manipulator >= 0)
-	//{
-	//	// ベクターの最終要素に押された数字を追加
-	//	m_ManipulationHistory.push_back(Manipulator);
-
-	//	// 表示すべき値を計算
-	//	for (int i = 0; i < m_ManipulationHistory.size(); ++i)
-	//	{
-	//		m_CalcResult += (double)m_ManipulationHistory[i] * (Exponentiation(10, (m_ManipulationHistory.size() - i - 1)));
-	//	}
-	//}
-
-	// C1ボタンが押された時の処理
-	if (Manipulator == 12)
-	{
-	
-
-	}
-
-	// 数字以外のボタンが押された場合の処理。
-	else
-	{
-
-	}
-
-	return m_CalcResult;
+	return 0.0;
 }
 
 char* CCalculate::SetView1(char Manipulator)
 {
+	// "√"が押された時の場合
+	if (Manipulator == 'R')
+	{
+		double View1 = 0.0; // View1の変換
+		double Result = 0.0; // root計算結果
+
+		//for (int i = 0; i < m_ManipulationViewTermination; ++i)
+		//{
+		//	View1 += atoi(&m_ManipulationView1[i]) * Exponentiation(10, m_ManipulationViewTermination - i);
+		//}
+
+		//Result = sqrt(View1);
+
+		// 入力数字の平方根計算
+		Result = sqrt(atof(&m_ManipulationView1[0]));
+
+
+		// double →　配列への変換処理
+		// 記載予定
+		
+
+		return m_ManipulationView1;
+	}
+
 	// "←"が押された時の場合
 	if (Manipulator == 'B')
 	{
