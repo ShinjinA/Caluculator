@@ -88,6 +88,7 @@ BEGIN_MESSAGE_MAP(CCaluculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON20, &CCaluculatorDlg::OnBnClickedButton20)
 	ON_BN_CLICKED(IDC_BUTTON13, &CCaluculatorDlg::OnBnClickedButton13)
 	ON_BN_CLICKED(IDC_BUTTON11, &CCaluculatorDlg::OnBnClickedButton11)
+	ON_BN_CLICKED(IDC_BUTTON16, &CCaluculatorDlg::OnBnClickedButton16)
 END_MESSAGE_MAP()
 
 
@@ -197,9 +198,8 @@ void CCaluculatorDlg::OnBnClickedButton2()
 // クリアボタン
 void CCaluculatorDlg::OnBnClickedButton12()
 {
-	cCalculate->ResetManipulationView1();
-
-	this->View1.SetWindowText(cCalculate->GetView1());
+	this->View1.SetWindowText(cCalculate->SetView1('C'));
+	this->History.SetWindowTextA(cCalculate->GetHistory());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
@@ -211,26 +211,34 @@ void CCaluculatorDlg::OnBnClickedButton3()
 }
 
 
-void CCaluculatorDlg::OnBnClickedButton14()
+void CCaluculatorDlg::OnBnClickedButton14() // '+'(A)
 {
+	this->View1.SetWindowText(cCalculate->SetView1('A'));
+	this->History.SetWindowTextA(cCalculate->GetHistory());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
 
-void CCaluculatorDlg::OnBnClickedButton15()
+void CCaluculatorDlg::OnBnClickedButton15() // '-'(S)
 {
+	this->View1.SetWindowText(cCalculate->SetView1('S'));
+	this->History.SetWindowTextA(cCalculate->GetHistory());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
 
-void CCaluculatorDlg::OnBnClickedButton17()
+void CCaluculatorDlg::OnBnClickedButton17() // '×'(M)
 {
+	this->View1.SetWindowText(cCalculate->SetView1('M'));
+	this->History.SetWindowTextA(cCalculate->GetHistory());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
 
-void CCaluculatorDlg::OnBnClickedButton18()
+void CCaluculatorDlg::OnBnClickedButton18() // '÷'(D)
 {
+	this->View1.SetWindowText(cCalculate->SetView1('D'));
+	this->History.SetWindowTextA(cCalculate->GetHistory());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
@@ -291,15 +299,23 @@ void CCaluculatorDlg::OnBnClickedButton20()
 }
 
 
-void CCaluculatorDlg::OnBnClickedButton13()
+void CCaluculatorDlg::OnBnClickedButton13() // '←'
 {
 	this->View1.SetWindowText(cCalculate->SetView1('B'));
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
 
-void CCaluculatorDlg::OnBnClickedButton11()
+void CCaluculatorDlg::OnBnClickedButton11() // '√'
 {
 	this->View1.SetWindowText(cCalculate->SetView1('R'));
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton16() // '='(E)
+{
+	this->View1.SetWindowText(cCalculate->SetView1('E'));
+	this->History.SetWindowTextA(cCalculate->GetHistory());
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }

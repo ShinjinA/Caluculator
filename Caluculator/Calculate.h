@@ -16,6 +16,11 @@ enum EOperator
 	Div,
 };
 
+enum EManipulator
+{
+
+};
+
 // シングルトンクラスとして実装したい、後々
 
 class CCalculate
@@ -37,13 +42,14 @@ public:
 	// m_ManipulationView1に数字を追加する
 	char* SetView1(char Manipulator);
 
+	// m_ManipulationView1のGet関数
 	char* GetView1();
 
-	int GetView1Size();
+	// m_ManipulationHistoryのGet関数
+	char* GetHistory();
 
-	// m_ManipulationView1をすべて0x00にリセット
-	// m_ManipulationViewTerminationを0
-	void ResetManipulationView1();
+	// m_ManipulationViewTerminationのGet関数
+	int GetView1Size();
 
 private:
 
@@ -64,16 +70,41 @@ private:
 	/// <returns></returns>
 	double Add(double Num1, double Num2);
 
+	/// <summary>
+	/// m_ManipulationView1をm_ManipulationHistoryにコピーする
+	/// </summary>
+	void ManipulationView1ToHistory();
+
+	/// <summary>
+	/// m_ManipulationHistoryをm_ManipulationView1にコピーする
+	/// </summary>
+	void ManipulationHistoryToView1();
+
+	// m_ManipulationView1をすべて0x00にリセット
+	// m_ManipulationViewTerminationを0
+	void ResetManipulationView1();
+
+	// m_ManipulationView1をすべて0x00にリセット
+	void ResetManipulationHistory();
+
 	// 押されたボタンを保存する配列（View1に表示）
 	char m_ManipulationView1[MAX_MANIPULATE_LENGTH + 1];
 
 	// 押されたボタンを保存する配列（History）
-	char m_ManipulationHistory[MAX_MANIPULATE_LENGTH + 1];
+	// [1]　終端文字(0x00)
+	// [2]　演算子記憶用
+	char m_ManipulationHistory[MAX_MANIPULATE_LENGTH + 3];
 
 	// 計算結果
 	long double m_CalcResult;
 
-	// 配列に入力された数字の要素数
-	char m_ManipulationViewTermination;
+	// m_ManipulationView1に入力された数字の要素数
+	char m_ManipulationView1Termination;
+
+	// m_ManipulationHistoryに格納された数字の要素数
+	char m_ManipulationHistoryTermination;
+
+	// 直前に押された演算子
+	char m_LatestManipulator;
 
 };
