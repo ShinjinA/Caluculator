@@ -17,12 +17,12 @@ CCalculate::CCalculate() :
 	m_ManipulationHistory{ 0x00 },
 	m_ManipulationViewTermination(0)
 {
-
+	// 何もしない
 }
 
 CCalculate::~CCalculate()
 {
-
+	// 何もしない
 }
 
 double CCalculate::ExecCalc(char Manipulator)
@@ -35,23 +35,15 @@ char* CCalculate::SetView1(char Manipulator)
 	// "√"が押された時の場合
 	if (Manipulator == 'R')
 	{
-		double View1 = 0.0; // View1の変換
 		double Result = 0.0; // root計算結果
-
-		//for (int i = 0; i < m_ManipulationViewTermination; ++i)
-		//{
-		//	View1 += atoi(&m_ManipulationView1[i]) * Exponentiation(10, m_ManipulationViewTermination - i);
-		//}
-
-		//Result = sqrt(View1);
 
 		// 入力数字の平方根計算
 		Result = sqrt(atof(&m_ManipulationView1[0]));
 
+		this->ResetManipulationView1();
 
 		// double →　配列への変換処理
-		// 記載予定
-		
+		snprintf(m_ManipulationView1,MAX_MANIPULATE_LENGTH,"%f",Result);
 
 		return m_ManipulationView1;
 	}
@@ -95,23 +87,18 @@ char* CCalculate::SetView1(char Manipulator)
 			return m_ManipulationView1;
 		}
 		// 0以外の数字が押されたときには、初めに入力した0を削除する。
-		else if(Manipulator - 0x31 >=0 && Manipulator - 0x39 <= 0)
+		else if (Manipulator - 0x31 >= 0 && Manipulator - 0x39 <= 0)
 		{
 			--m_ManipulationViewTermination;
 		}
 	}
 
 	// 配列の後ろに押されたボタンの数字を追加していく
-	if (m_ManipulationViewTermination < MAX_MANIPULATE_LENGHT)
+	if (m_ManipulationViewTermination < MAX_MANIPULATE_LENGTH)
 	{
 		m_ManipulationView1[m_ManipulationViewTermination] = Manipulator;
 		++m_ManipulationViewTermination;
 	}
-
-
-
-
-
 
 	return m_ManipulationView1;
 }
@@ -148,7 +135,7 @@ double CCalculate::Add(double Num1, double Num2)
 void CCalculate::ResetManipulationView1()
 {
 	m_ManipulationViewTermination = 0;
-	for (int i = 0; i < MAX_MANIPULATE_LENGHT; ++i)
+	for (int i = 0; i < MAX_MANIPULATE_LENGTH; ++i)
 	{
 		m_ManipulationView1[i] = 0x00;
 	}

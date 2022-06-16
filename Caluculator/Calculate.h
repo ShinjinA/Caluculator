@@ -3,7 +3,7 @@
 #include <vector>
 #include <iterator>
 
-#define MAX_MANIPULATE_LENGHT 20
+#define MAX_MANIPULATE_LENGTH 20
 
 /// <summary>
 /// 演算子
@@ -65,10 +65,10 @@ private:
 	double Add(double Num1, double Num2);
 
 	// 押されたボタンを保存する配列（View1に表示）
-	char m_ManipulationView1[MAX_MANIPULATE_LENGHT + 1];
+	char m_ManipulationView1[MAX_MANIPULATE_LENGTH + 1];
 
 	// 押されたボタンを保存する配列（History）
-	char m_ManipulationHistory[MAX_MANIPULATE_LENGHT + 1];
+	char m_ManipulationHistory[MAX_MANIPULATE_LENGTH + 1];
 
 	// 計算結果
 	long double m_CalcResult;

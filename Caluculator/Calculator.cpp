@@ -6,6 +6,7 @@
 #include "framework.h"
 #include "Calculator.h"
 #include "CalculatorDlg.h"
+#include "Calculate.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -18,6 +19,7 @@ BEGIN_MESSAGE_MAP(CCaluculatorApp, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
+extern CCalculate* cCalculate;
 
 // CCaluculatorApp の構築
 
@@ -78,11 +80,15 @@ BOOL CCaluculatorApp::InitInstance()
 	{
 		// TODO: ダイアログが <OK> で消された時のコードを
 		//  記述してください。
+		delete cCalculate;
+
 	}
 	else if (nResponse == IDCANCEL)
 	{
 		// TODO: ダイアログが <キャンセル> で消された時のコードを
 		//  記述してください。
+		delete cCalculate;
+
 	}
 	else if (nResponse == -1)
 	{
