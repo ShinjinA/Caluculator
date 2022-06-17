@@ -67,7 +67,7 @@ char* CCalculate::SetView1(char Manipulator)
 			// m_ManipulationView1‚ª³‚Ìê‡ 
 			else
 			{
-				for (int i = 0; i < m_ManipulationView1Termination; ++i)
+				for (int i = m_ManipulationView1Termination; i >= 0; --i)
 				{
 					m_ManipulationView1[i + 1] = m_ManipulationView1[i];
 				}

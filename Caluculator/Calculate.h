@@ -1,27 +1,6 @@
 #pragma once
 
-#include <vector>
-#include <iterator>
-
 #define MAX_MANIPULATE_LENGTH 15
-
-/// <summary>
-/// 演算子
-/// </summary>
-enum EOperator
-{
-	Add = 0,
-	Sub,
-	Mul,
-	Div,
-};
-
-enum EManipulator
-{
-
-};
-
-// シングルトンクラスとして実装したい、後々
 
 class CCalculate
 {
