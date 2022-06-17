@@ -175,6 +175,7 @@ char* CCalculate::SetView1(char Manipulator)
 			if (m_ManipulationView1Termination == 0)
 			{
 				// "="が押された時
+				// m_CalcResultをView1に表示する
 				if (Manipulator == 'E')
 				{
 					// double →　配列への変換処理
@@ -202,20 +203,22 @@ char* CCalculate::SetView1(char Manipulator)
 			// Historyに何も表示がない場合
 			if (m_ManipulationHistoryTermination == 0)
 			{
-				// 初めに押された場合は、計算結果に足す。
-				m_CalcResult = atof(&m_ManipulationView1[0]);
+				if (Manipulator != 'E')
+				{
+					// 初めに押された場合は、計算結果に足す。
+					m_CalcResult = atof(&m_ManipulationView1[0]);
 
-				// View1をそのままHistoryにコピー
-				this->ManipulationView1ToHistory();
-				this->ResetManipulationView1();
+					// View1をそのままHistoryにコピー
+					this->ManipulationView1ToHistory();
+					this->ResetManipulationView1();
 
-				// m_ManipulationHistoryの尻に演算子を付与
-				// 見やすくするため
-				m_ManipulationHistory[m_ManipulationHistoryTermination] = ' ';
-				m_ManipulationHistory[m_ManipulationHistoryTermination + 1] = ManipulatorDisplayed;
+					// m_ManipulationHistoryの尻に演算子を付与
+					// 見やすくするため
+					m_ManipulationHistory[m_ManipulationHistoryTermination] = ' ';
+					m_ManipulationHistory[m_ManipulationHistoryTermination + 1] = ManipulatorDisplayed;
 
-				m_LatestManipulator = Manipulator;
-
+					m_LatestManipulator = Manipulator;
+				}
 				return m_ManipulationView1;
 			}
 
