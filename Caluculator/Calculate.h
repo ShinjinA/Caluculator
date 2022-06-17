@@ -3,7 +3,7 @@
 #include <vector>
 #include <iterator>
 
-#define MAX_MANIPULATE_LENGTH 10
+#define MAX_MANIPULATE_LENGTH 15
 
 /// <summary>
 /// ‰‰ŽZŽq

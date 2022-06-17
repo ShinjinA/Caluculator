@@ -178,7 +178,7 @@ char* CCalculate::SetView1(char Manipulator)
 				if (Manipulator == 'E')
 				{
 					// double →　配列への変換処理
-					snprintf(m_ManipulationView1, MAX_MANIPULATE_LENGTH, "%.20f", m_CalcResult);
+					snprintf(m_ManipulationView1, MAX_MANIPULATE_LENGTH, "%f", m_CalcResult);
 					this->ResetManipulationHistory();
 
 					this->SearchManipulationView1Termination();
@@ -248,7 +248,7 @@ char* CCalculate::SetView1(char Manipulator)
 			this->ResetManipulationHistory();
 
 			// double →　配列への変換処理
-			snprintf(m_ManipulationHistory, MAX_MANIPULATE_LENGTH, "%.20f", m_CalcResult);
+			snprintf(m_ManipulationHistory, MAX_MANIPULATE_LENGTH, "%f", m_CalcResult);
 
 			this->SearchManipulationHistoryTermination();
 
@@ -365,9 +365,12 @@ void CCalculate::SearchManipulationHistoryTermination()
 		if (m_ManipulationHistory[i] != 0x00 && m_ManipulationHistory[i] != 0x30)
 		{
 			m_ManipulationHistoryTermination = i + 1;
-			break;
+			return;
 		}
 	}
+
+	// 0x00,または'0'でないbyteが見つからなかった場合
+	m_ManipulationHistoryTermination = 0;
 }
 
 void CCalculate::SearchManipulationView1Termination()
@@ -378,9 +381,12 @@ void CCalculate::SearchManipulationView1Termination()
 		if (m_ManipulationView1[i] != 0x00 && m_ManipulationView1[i] != 0x30)
 		{
 			m_ManipulationView1Termination = i + 1;
-			break;
+			return;
 		}
 	}
+
+	// 0x00,または'0'でないbyteが見つからなかった場合
+	m_ManipulationView1Termination = 0;
 }
 
 void CCalculate::SetNullAfterHistoryTermination()
