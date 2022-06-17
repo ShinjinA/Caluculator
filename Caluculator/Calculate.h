@@ -68,7 +68,7 @@ private:
 	void ResetManipulationView1();
 
 	// m_ManipulationView1をすべて0x00にリセット
-		// m_ManipulationHistoryTerminationを0
+	// m_ManipulationHistoryTerminationを0
 	void ResetManipulationHistory();
 
 	// m_ManipulationHistoryTerminationをサーチしてセットする。
@@ -82,6 +82,12 @@ private:
 
 	// m_ManipulationView1のm_ManipulationTermination以降を0x00にする。
 	void SetNullAfterView1Termination();
+
+
+//////////////////////
+//  以下メンバ変数  //
+//////////////////////
+private:
 
 	// 押されたボタンを保存する配列（View1に表示）
 	// [1]　終端文字(0x00)
@@ -103,5 +109,9 @@ private:
 
 	// 直前に押された演算子
 	char m_LatestManipulator;
+
+	// エラーフラグ
+	// trueの場合、"C"ボタンしか受け付けない
+	bool m_Errorflg;
 
 };
