@@ -89,6 +89,7 @@ BEGIN_MESSAGE_MAP(CCaluculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON13, &CCaluculatorDlg::OnBnClickedButton13)
 	ON_BN_CLICKED(IDC_BUTTON11, &CCaluculatorDlg::OnBnClickedButton11)
 	ON_BN_CLICKED(IDC_BUTTON16, &CCaluculatorDlg::OnBnClickedButton16)
+	ON_BN_CLICKED(IDC_BUTTON19, &CCaluculatorDlg::OnBnClickedButton19)
 END_MESSAGE_MAP()
 
 
@@ -317,5 +318,12 @@ void CCaluculatorDlg::OnBnClickedButton16() // '='(E)
 {
 	this->View1.SetWindowText(cCalculate->SetView1('E'));
 	this->History.SetWindowTextA(cCalculate->GetHistory());
+	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+}
+
+
+void CCaluculatorDlg::OnBnClickedButton19() // '±'(L)
+{
+	this->View1.SetWindowText(cCalculate->SetView1('L'));
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
